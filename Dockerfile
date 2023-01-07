@@ -10,4 +10,8 @@ RUN wget -O /tmp/nomachine.rpm "https://download.nomachine.com/download/8.2/Linu
 # ADD nxserver.sh
 RUN wget -O /nxserver.sh https://raw.githubusercontent.com/ramirezfx/opensuse-leap-desktop/main/nxserver.sh && chmod +x /nxserver.sh
 
+# Custom Packages And Sripts:
+RUN wget -O /custom.sh https://raw.githubusercontent.com/ramirezfx/xubuntu-desktop/kinetic-0.0.8/custom.sh && chmod +x /custom.sh
+RUN /custom.sh
+
 ENTRYPOINT ["/nxserver.sh"]

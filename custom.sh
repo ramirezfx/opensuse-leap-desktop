@@ -1,6 +1,6 @@
 # Install Seafile-Cloud-Sync-Client
 # ---------------------------------
-zypper -n -in seafile-client
+zypper -n in seafile-client
 
 # Install Visual Studio
 -----------------------

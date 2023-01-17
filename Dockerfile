@@ -14,4 +14,7 @@ RUN wget -O /nxserver.sh https://raw.githubusercontent.com/ramirezfx/opensuse-le
 RUN wget -O /custom.sh https://raw.githubusercontent.com/ramirezfx/opensuse-leap-desktop/main/custom.sh && chmod +x /custom.sh
 RUN /custom.sh
 
+# Add language-support:
+RUN wget -O /tmp/languages.txt https://github.com/ramirezfx/opensuse-tumbleweed-desktop/raw/main/languages-kde.txt && xargs -a /tmp/languages.txt zypper -n --no-gpg-checks in
+
 ENTRYPOINT ["/nxserver.sh"]

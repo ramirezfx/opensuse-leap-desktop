@@ -1,5 +1,5 @@
 ARG VER=latest
-FROM ramirezfx/ramirezfx/opensuse-leap-kde-baseimage:$VER
+FROM ramirezfx/opensuse-leap-kde-baseimage:$VER
 ENV SHELL=/bin/bash
 
 RUN zypper -n in git cups wget

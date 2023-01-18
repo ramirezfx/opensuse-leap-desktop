@@ -5,6 +5,7 @@ groupadd -r $USER -g 433 \
 && chown -R $USER:$USER /home/$USER \
 && echo $USER':'$PASSWORD | chpasswd
 echo root':'$ROOTPWD | chpasswd
+userdel -r opensuse
 ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 /etc/NX/nxserver --startup
 tail -f /usr/NX/var/log/nxserver.log

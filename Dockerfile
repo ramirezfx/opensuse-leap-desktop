@@ -2,12 +2,11 @@ ARG VER=latest
 FROM ramirezfx/opensuse-leap-kde-baseimage:$VER
 ENV SHELL=/bin/bash
 
+# Install minimum needed packages
 RUN zypper -n in git cups wget
 
 # Download and install latest Nomachine
 RUN DLLINK=$(wget --save-headers --output-document - https://downloads.nomachine.com/de/download/?id=6 | grep download.nomachine.com | cut -d '"' -f6 | head -1) && wget -O /tmp/nomachine.rpm $DLLINK && zypper -n --no-gpg-checks in /tmp/nomachine.rpm
-
-# RUN wget -O /tmp/nomachine.rpm "https://download.nomachine.com/download/8.2/Linux/nomachine_8.2.3_4_x86_64.rpm" && zypper -n --no-gpg-checks in /tmp/nomachine.rpm
 
 # ADD nxserver.sh
 RUN wget -O /nxserver.sh https://raw.githubusercontent.com/ramirezfx/opensuse-leap-desktop/main/nxserver.sh && chmod +x /nxserver.sh

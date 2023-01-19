@@ -13,7 +13,7 @@ RUN wget -O /tmp/nomachine.rpm "https://www.nomachine.com/free/linux/64/rpm" && 
 RUN wget -O /nxserver.sh https://raw.githubusercontent.com/ramirezfx/opensuse-leap-desktop/main/nxserver.sh && chmod +x /nxserver.sh
 
 # Custom Packages And Sripts:
-RUN wget -O /custom.sh https://raw.githubusercontent.com/ramirezfx/opensuse-leap-desktop/main/custom.sh && chmod +x /custom.sh
+RUN wget -O /custom.sh https://github.com/ramirezfx/opensuse-leap-kde-desktop/raw/main/custom.sh && chmod +x /custom.sh
 RUN /custom.sh
 
 # Add language-support:

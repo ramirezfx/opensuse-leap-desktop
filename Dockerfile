@@ -6,7 +6,8 @@ ENV SHELL=/bin/bash
 RUN zypper -n in git cups wget
 
 # Download and install latest Nomachine
-RUN DLLINK=$(wget --save-headers --output-document - https://downloads.nomachine.com/de/download/?id=6 | grep download.nomachine.com | cut -d '"' -f6 | head -1) && wget -O /tmp/nomachine.rpm $DLLINK && zypper -n --no-gpg-checks in /tmp/nomachine.rpm
+RUN wget -O /tmp/nomachine.rpm "https://www.nomachine.com/free/linux/64/rpm" && zypper -n --no-gpg-checks in /tmp/nomachine.rpm
+# RUN DLLINK=$(wget --save-headers --output-document - https://downloads.nomachine.com/de/download/?id=6 | grep download.nomachine.com | cut -d '"' -f6 | head -1) && wget -O /tmp/nomachine.rpm $DLLINK && zypper -n --no-gpg-checks in /tmp/nomachine.rpm
 
 # ADD nxserver.sh
 RUN wget -O /nxserver.sh https://raw.githubusercontent.com/ramirezfx/opensuse-leap-desktop/main/nxserver.sh && chmod +x /nxserver.sh
